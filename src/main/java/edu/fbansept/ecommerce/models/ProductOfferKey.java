@@ -10,10 +10,7 @@ import java.io.Serializable;
 @Embeddable
 @Getter
 @Setter
-public class CartLineKey implements Serializable {
-
-    @Column(name = "customer_id")
-    private Integer customerId;
+public class ProductOfferKey implements Serializable {
 
     @Column(name = "seller_id")
     private Integer sellerId;

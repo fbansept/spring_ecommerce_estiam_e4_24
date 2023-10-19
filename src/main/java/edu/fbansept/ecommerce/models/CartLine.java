@@ -15,7 +15,10 @@ public class CartLine {
     private Integer customerId;
 
     @Id
-    private Integer productOfferId;
+    private Integer productId;
+
+    @Id
+    private Integer sellerId;
 
     @ManyToOne
     @MapsId("customerId")
@@ -23,8 +26,10 @@ public class CartLine {
     private Customer customer;
 
     @ManyToOne
-    @MapsId("productOfferId")
-    @JoinColumn(name = "product_offer_id")
+    @JoinColumns({
+            @JoinColumn(name = "product_id", insertable=false, updatable=false),
+            @JoinColumn(name = "seller_id", insertable=false, updatable=false)}
+    )
     private ProductOffer productOffer;
 
     private int quantity;

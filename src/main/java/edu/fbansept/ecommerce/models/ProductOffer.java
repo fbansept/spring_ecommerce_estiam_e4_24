@@ -8,13 +8,26 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
+@IdClass(ProductOfferKey.class)
 public class ProductOffer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer sellerId;
+
+    @Id
+    private Integer productId;
 
     private float price;
 
     private int quantity;
+
+    @ManyToOne
+    @MapsId("productId")
+    @JoinColumn(name = "product_id")
+    private Product product;
+
+    @ManyToOne
+    @MapsId("sellerId")
+    @JoinColumn(name = "seller_id")
+    private Seller seller;
 }

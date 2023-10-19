@@ -3,20 +3,20 @@ package edu.fbansept.ecommerce.models;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
-import java.time.LocalDateTime;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 @Getter
 @Setter
-public class ProductOrder {
+public class Product {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private LocalDateTime date;
-
-    @ManyToOne
-    private Customer customer;
+    private String name;
 
 }
