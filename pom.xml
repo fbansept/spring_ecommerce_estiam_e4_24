@@ -47,7 +47,38 @@
 		</dependency>
 	</dependencies>
 
+	<profiles>
+
+		<profile>
+			<id>dev</id>
+			<properties>
+				<host>localhost</host>
+				<host-port>3306</host-port>
+				<dbname>ecommerce</dbname>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>staging</id>
+			<properties>
+				<host>localhost</host>
+				<host-port>3306</host-port>
+				<dbname>staging</dbname>
+			</properties>
+
+		</profile>
+
+	</profiles>
+
 	<build>
+
+		<resources>
+			<resource>
+				<filtering>true</filtering>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
