@@ -1,6 +1,7 @@
 package edu.fbansept.ecommerce.security;
 
 import edu.fbansept.ecommerce.models.User;
+import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -8,6 +9,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.ArrayList;
 import java.util.Collection;
 
+@Getter
 public class EcommerceUserDetails implements UserDetails {
 
     private User user;
@@ -26,11 +28,11 @@ public class EcommerceUserDetails implements UserDetails {
         ArrayList<GrantedAuthority> roleList = new ArrayList<>();
 
         if(isCustomer) {
-            roleList.add(new SimpleGrantedAuthority("CUSTOMER"));
+            roleList.add(new SimpleGrantedAuthority("ROLE_CUSTOMER"));
         }
 
         if(isSeller) {
-            roleList.add(new SimpleGrantedAuthority("SELLER"));
+            roleList.add(new SimpleGrantedAuthority("ROLE_SELLER"));
         }
 
         return roleList;

@@ -1,5 +1,6 @@
 package edu.fbansept.ecommerce.security;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,7 +17,14 @@ public class JwtUtils {
                 .setSubject(userDetails.getUsername())
                 .signWith(SignatureAlgorithm.HS256, secret)
                 .compact();
+    }
 
+    public Claims extractBody(String jwt) {
+
+        return Jwts.parser()
+                .setSigningKey(secret)
+                .parseClaimsJws(jwt)
+                .getBody();
     }
 
 }
