@@ -1,5 +1,7 @@
 package edu.fbansept.ecommerce.models;
 
+import com.fasterxml.jackson.annotation.JsonView;
+import edu.fbansept.ecommerce.view.ProductView;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,11 +14,14 @@ import javax.persistence.*;
 public class ProductOffer {
 
     @Id
+    @JsonView(ProductView.class)
     private Integer sellerId;
 
     @Id
+    @JsonView(ProductView.class)
     private Integer productId;
 
+    @JsonView(ProductView.class)
     private float price;
 
     private int quantity;
@@ -29,5 +34,6 @@ public class ProductOffer {
     @ManyToOne
     @MapsId("sellerId")
     @JoinColumn(name = "seller_id")
+    @JsonView(ProductView.class)
     private Seller seller;
 }
