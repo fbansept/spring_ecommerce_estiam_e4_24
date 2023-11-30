@@ -15,7 +15,7 @@ INSERT INTO seller (group_name, id) VALUES
 ('fnac', 3);
 
 INSERT INTO product (name, description) VALUES
-("PS5","La PlayStation 5 (abrégée officiellement PS5) est la console de jeux vidéo de salon de neuvième génération développée par Sony Interactive Entertainment."),
+("Playstation 5","La PlayStation 5 (abrégée officiellement PS5) est la console de jeux vidéo de salon de neuvième génération développée par Sony Interactive Entertainment."),
 ("XBox One", "La Xbox One est une console de jeux vidéo de huitième génération développée par Microsoft. Dévoilée le 21 mai 2013 , elle succède à la Xbox 360");
 
 INSERT INTO product_offer (seller_id, product_id ,quantity, price, discount, percent_discount, discount_code) VALUES
