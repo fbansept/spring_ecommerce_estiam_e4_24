@@ -15,11 +15,13 @@ public class EcommerceUserDetails implements UserDetails {
     private User user;
     private boolean isCustomer;
     private boolean isSeller;
+    private boolean isAdmin;
 
-    public EcommerceUserDetails(User user, boolean isCustomer, boolean isSeller){
+    public EcommerceUserDetails(User user, boolean isCustomer, boolean isSeller, boolean isAdmin){
         this.user = user;
         this.isCustomer = isCustomer;
         this.isSeller = isSeller;
+        this.isAdmin = isAdmin;
     }
 
     @Override
@@ -33,6 +35,10 @@ public class EcommerceUserDetails implements UserDetails {
 
         if(isSeller) {
             roleList.add(new SimpleGrantedAuthority("ROLE_SELLER"));
+        }
+
+        if(isAdmin) {
+            roleList.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
         }
 
         return roleList;

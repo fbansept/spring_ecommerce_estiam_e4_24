@@ -1,5 +1,6 @@
 package edu.fbansept.ecommerce.security;
 
+import edu.fbansept.ecommerce.dao.AdminDao;
 import edu.fbansept.ecommerce.dao.CustomerDao;
 import edu.fbansept.ecommerce.dao.SellerDao;
 import edu.fbansept.ecommerce.dao.UserDao;
@@ -26,6 +27,9 @@ public class EcommerceUserDetailsService implements UserDetailsService {
     @Autowired
     private UserDao userDao;
 
+    @Autowired
+    private AdminDao adminDao;
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
@@ -35,7 +39,8 @@ public class EcommerceUserDetailsService implements UserDetailsService {
 
         boolean isCustomer = customerDao.existsById(user.getId());
         boolean isSeller = sellerDao.existsById(user.getId());
+        boolean isAdmin = adminDao.existsById(user.getId());
 
-        return new EcommerceUserDetails(user, isCustomer, isSeller);
+        return new EcommerceUserDetails(user, isCustomer, isSeller, isAdmin);
     }
 }

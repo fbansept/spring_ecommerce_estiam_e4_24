@@ -4,8 +4,10 @@ INSERT INTO user (email, password) VALUES
 ('titi@gmail.com', 'root'),
 ('tutu@gmail.com', 'root');
 
+INSERT INTO admin (id) VALUES
+(1);
+
 INSERT INTO customer (code, id) VALUES
-('toto123', 1),
 ('tata456', 2);
 
 INSERT INTO seller (group_name, id) VALUES
@@ -22,4 +24,4 @@ INSERT INTO product_offer (seller_id, product_id ,quantity,  price) VALUES
 (4,1,200, 9.80);
 
 INSERT INTO cart_line (customer_id, seller_id, product_id, quantity) VALUES
-(1, 3, 1, 20);
+(2, 3, 1, 20);
