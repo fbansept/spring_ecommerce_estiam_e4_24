@@ -1,6 +1,7 @@
 package edu.fbansept.ecommerce.models;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import edu.fbansept.ecommerce.view.ProductOfferView;
 import edu.fbansept.ecommerce.view.ProductView;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,8 +19,11 @@ public class Product {
     @JsonView(ProductView.class)
     private Integer id;
 
-    @JsonView(ProductView.class)
+    @JsonView({ProductView.class,ProductOfferView.class})
     private String name;
+
+    @JsonView({ProductView.class,ProductOfferView.class})
+    private String description;
 
     @JsonView(ProductView.class)
     @OneToMany(mappedBy = "product")

@@ -20,6 +20,7 @@ public class JwtUtils {
         claims.put("isSeller", userDetails.isSeller());
         claims.put("isCustomer", userDetails.isCustomer());
         claims.put("isAdmin", userDetails.isAdmin());
+        claims.put("id", userDetails.getUser().getId());
 
         return Jwts.builder()
                 .setSubject(userDetails.getUsername())
